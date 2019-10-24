@@ -1,3 +1,7 @@
+/*
+This program uses a linear algebra formula to predict the price of a house, given its elements (number of bathrooms, year made, etc)
+*/
+
 #include <stdlib.h>
 #include <stdio.h>
 
