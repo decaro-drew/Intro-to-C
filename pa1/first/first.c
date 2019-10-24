@@ -1,3 +1,10 @@
+/*
+This program reads a file containing numbers, and prints the odd numbers in ascending order, and the even ones in descending order
+
+*/
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -10,14 +17,8 @@ int main(int argc, char** argv){
         return 0;
       }
      
-     // char buffer[100];
      int count;
-     /*
-     while(fscanf(fp, "%s", buffer) != EOF){
-       count++;
-     }
-     rewind(fp);
-     */
+  
      fscanf(fp, "%d", &count);
      
       int *A;
