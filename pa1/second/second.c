@@ -1,3 +1,6 @@
+/*
+This program reads a file, and either adds a number into a hashtable, or searches for it, depending on the command
+*/
 #include <stdlib.h>
 #include <stdio.h>
 
