@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char** argv){
+ 
+
+     FILE* fp = fopen(argv[1], "r");
+    
+     if(fp == NULL){
+        return 0;
+      }
+     
+     char buffer[100];
+     int count = 0;
+     while(fscanf(fp, "%s", buffer) != EOF){
+       count++;
+     }
+     rewind(fp);
+     
+      int *A;
+      A = (int*)malloc(count * sizeof(int));
+      int f;
+      for(f=0; f<count; f++){
+
+        fscanf(fp, "%d", &A[f]);
+      }
+     
+      int k; int d;
+     for(k=0; k < count; k++){
+	 for(d =0; d < count -k-1;d++){
+	   if(A[d] %2 == 0 && A[d+1] %2 != 0){
+	     int tmp = A[d];
+	     A[d] = A[d+1];
+	     A[d+1] = tmp;
+	   }
+	 }
+     }
+   
+     int i;
+     int even;
+     for(i = 0; i<count; i++){
+       even = i;
+       if(A[i] % 2 == 0){
+	 break;
+       }
+     }
+     
+     int n, c, sort;
+     for( c = 0; c < even -1; c++){
+       for(n =0; n< even -c -1; n++){
+	 if(A[n] > A[n+1]){
+	   sort = A[n];
+	   A[n]=A[n+1];
+	   A[n+1] = sort;
+	 }
+       }
+     }
+     
+     
+     for( c = even +1; c < count -1; c++){
+       for(n = even+1; n< count-1; n++){
+	 if(A[n] <  A[n+1]){
+	   sort = A[n];
+	   A[n]=A[n+1];
+	   A[n+1] = sort;
+	 }
+       }
+     }
+     
+     
+     for(i=0; i < count; i++){
+       printf("%d\t", A[i]);
+     }
+     
+     
+     fclose(fp);
+     return 0;
+
+}
