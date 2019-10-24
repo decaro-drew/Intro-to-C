@@ -1,3 +1,9 @@
+/*
+This program reads a file, and either gets the nth bit of number, set the nth bit to something else, 
+or gets the complement of an nth bit
+
+*/
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -6,7 +12,6 @@
 void get(unsigned short x, int n){
   unsigned short int bit = (x >> (n))&1;
   printf("%hd\n", bit);
-  //this should work
 }
 
 
@@ -14,12 +19,10 @@ unsigned short int set(unsigned short int x, int n, int v){
   //shift it then or it with xc
   // unsigned short new;
   if(v==1){
-    //  printf("in if\n");
-    x =(1<<n) | x; //replacing *x with new, and switched << to >>
+    x =(1<<n) | x;
   }
   else{
-    // printf("in else\n");
-     x = x & ~(1 << n); //switched & with |
+     x = x & ~(1 << n); 
     
   }
   printf("%hu\n", x);
